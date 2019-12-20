@@ -1,0 +1,94 @@
+%% set-up
+\emergencystretch 3em % avoid overfulls in right margin
+\usepackage[a4paper]{geometry}
+\geometry{lmargin=4cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+%% fonts and styles
+\usepackage{ebgaramond} % main font
+\usepackage[x11names]{xcolor} % custom colours
+\usepackage{lettrine} % drop caps
+\input GoudyIn.fd % initial font
+\newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
+% set lettrine to use initial font and specified color
+\renewcommand\LettrineFontHook{\initfamily\color{VioletRed4}}
+% lettrine configuration
+\setlength{\DefaultFindent}{3pt}
+\setlength{\DefaultNindent}{0pt}
+\setcounter{DefaultLines}{3}
+% modify quote environment
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\itshape\Large}
+% use roman numbering for chapters
+\renewcommand{\thechapter}{\Roman{chapter}}
+% modify toc style
+\usepackage{tocloft}
+\renewcommand\cftchapfont{\mdseries}
+\renewcommand\cftchappagefont{\mdseries}
+\setlength{\cftchapnumwidth}{5em}
+% modify paragraph skip length
+\setlength{\parskip}{1.3\baselineskip}
+
+%% metadata and hyperlink set-up
+\title{\textbf\documenttitle}
+\author{\authorname}
+\date{\documentdate}
+\usepackage[hidelinks]{hyperref}
+\usepackage{hyperxmp}
+\hypersetup{
+    pdfauthor={\authorname},
+    pdftitle={\documenttitle},
+    pdfkeywords={\keywords},
+    pdflicenseurl=\licenseurl,
+    pdfproducer={xelatex}
+}
+\urlstyle{same} % don't use monospace font for urls
+
+%% header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% footer for first page of chapter
+\fancypagestyle{plain}{
+	\fancyhf{} % sets both header and footer to nothing
+	\renewcommand{\headrulewidth}{0pt} % remove horizontal line from header
+	\fancyfoot[C]{\large\thepage} % page number
+}
+% header and footer for all other pages
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\large\thepage}
+
+%%%
+
+%% front matter
+% title page and toc
+\newcommand{\thefrontmatter}{
+    \frontmatter
+    \begin{titlepage}
+        \hspace{0pt} % vertical centering
+        \vfill % ^
+        \centering % horizontal centering
+        \Huge\textbf\documenttitle
+        \\[2cm]
+        \huge\authorname
+        \vfill % vertical centering
+        \hspace{0pt} % ^
+    \end{titlepage}
+    \Large
+    \tableofcontents
+    \mainmatter
+}
+
+%% back matter
+\newcommand{\thebackmatter}{
+    \backmatter
+    \appendix
+    {
+        \hspace{0pt} % vertical centering
+        \vfill % ^
+        \centering % horizontal centering
+        \Huge\scshape\bfseries The End
+        \vfill % vertical centering
+        \hspace{0pt} % ^
+        \newpage
+    }
+}
