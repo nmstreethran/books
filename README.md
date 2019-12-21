@@ -6,7 +6,7 @@ A compilation of interesting public domain books from [Project Gutenberg](https:
 
 These PDFs are compiled using XeLaTeX and [template.sty](template.sty).
 
-- [Robin Hood](robin-hood/robin-hood.pdf)
+- [Robin Hood](tex-books/robin-hood/robin-hood.pdf)
 
 ## License
 
