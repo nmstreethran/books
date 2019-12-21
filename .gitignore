@@ -280,3 +280,4 @@ TSWLatexianTemp*
 archive/
 draft/
 *.txt.tex
+gutenberg-books/*
