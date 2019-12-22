@@ -7,10 +7,6 @@
 \usepackage{ebgaramond} % main font
 \usepackage[x11names]{xcolor} % custom colours
 \usepackage{lettrine} % drop caps
-\input GoudyIn.fd % initial font
-\newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
-% set lettrine to use initial font and specified color
-\renewcommand\LettrineFontHook{\initfamily\color{VioletRed4}}
 % lettrine configuration
 \setlength{\DefaultFindent}{3pt}
 \setlength{\DefaultNindent}{0pt}
@@ -24,9 +20,10 @@
 \usepackage{tocloft}
 \renewcommand\cftchapfont{\mdseries}
 \renewcommand\cftchappagefont{\mdseries}
-\setlength{\cftchapnumwidth}{5em}
 % modify paragraph skip length
-\setlength{\parskip}{1.3\baselineskip}
+\setlength{\parskip}{\baselineskip}
+\usepackage{sectsty}
+\usepackage{titlesec}
 
 %% metadata and hyperlink set-up
 \title{\textbf\booktitle}
@@ -57,6 +54,11 @@
 \renewcommand{\headrulewidth}{0pt}
 \fancyfoot[C]{\large\thepage}
 
+%% graphics
+\usepackage{graphicx}
+\graphicspath{{../../images/}}
+\usepackage{caption}
+
 %%%
 
 %% front matter
@@ -64,14 +66,8 @@
 \newcommand{\thefrontmatter}{
     \frontmatter
     \begin{titlepage}
-        \hspace{0pt} % vertical centering
-        \vfill % ^
         \centering % horizontal centering
-        \Huge\textbf\booktitle
-        \\[2cm]
-        \huge\authorname
-        \vfill % vertical centering
-        \hspace{0pt} % ^
+        \thetitlepage
     \end{titlepage}
 
     \Large
@@ -81,19 +77,17 @@
     \noindent The Project Gutenberg eBook of \booktitle, by \authorname
 
     \noindent
-    This eBook is for the use of anyone anywhere in the United States and most other parts of the world at no cost and with almost no restrictions whatsoever. You may copy it, give it away or re-use it under the terms of the Project Gutenberg License included with this eBook or online at \url{www.gutenberg.org}. If you are not located in the United States, you'll have to check the laws of the country where you are located before using this ebook.
+    This eBook is for the use of anyone anywhere in the United States and most other parts of the world at no cost and with almost no restrictions whatsoever. You may copy it, give it away or re-use it under the terms of the Project Gutenberg License included with this eBook or online at \url{www.gutenberg.org}. If you are not located in the United States, you'll have to check the laws of the country where you are located before using this eBook.
 
-    \noindent Title: \booktitle \\
-    Author: \authorname \\
-    Release Date: \releasedate \\
-    eBook number: \ebooknumber \\
-    Last Updated: \lastupdated \\
-    Produced by \producers
+    \noindent\bookinfo
     \vfill % vertical centering
     \hspace{0pt} % ^
-    \newpage
+    \cleardoublepage
 
-    \tableofcontents
+    \thetableofcontents
+    \cleardoublepage
+
+    \preface
 
     \mainmatter
 }

@@ -11,8 +11,38 @@
 \def \releasedate {January 21, 2006}
 \def \lastupdated {November 15, 2016}
 
+%% title page, info and toc
+\def \thetitlepage {
+    \hspace{0pt} % vertical centering
+    \vfill % ^
+    \Huge\textbf\booktitle
+    \\[2cm]
+    \huge\authorname
+    \vfill % vertical centering
+    \hspace{0pt} % ^
+}
+\def \bookinfo {
+    Title: \booktitle \\
+    Author: \authorname \\
+    Release Date: \releasedate \\
+    eBook number: \ebooknumber \\
+    Last Updated: \lastupdated \\
+    Produced by \producers
+}
+\def \thetableofcontents {\tableofcontents}
+\def \preface {}
+
 %% style file containing template
 \usepackage{../../template}
+
+%% toc chapter number width (tocloft)
+\setlength{\cftchapnumwidth}{5em}
+
+%% lettrine fonts
+\input GoudyIn.fd % initial font
+\newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
+% set lettrine to use initial font and specified color
+\renewcommand\LettrineFontHook{\initfamily\color{VioletRed4}}
 
 %%%
 \begin{document}
@@ -39,9 +69,9 @@
     \input{chapter-18}
     \input{chapter-19}
     \input{chapter-20}
-    \input{chapter-21} %``''
+    \input{chapter-21}
     \input{chapter-22}
-    \input{chapter-23} %``''
+    \input{chapter-23}
     \input{chapter-24}
 
     \thebackmatter
