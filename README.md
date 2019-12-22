@@ -8,6 +8,7 @@ A compilation of interesting public domain books from
 These PDFs are compiled using XeLaTeX and [template.sty](template.sty).
 
 - [Robin Hood](books/robin-hood/robin-hood.pdf)
+- [Viking Tales](books/viking-tales/viking-tales.pdf)
 
 ## License
 

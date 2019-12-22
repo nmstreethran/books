@@ -1,0 +1,150 @@
+%% set-up
+\documentclass[a4paper,12pt,twoside]{book}
+
+%% define metadata
+\def \booktitle {Viking Tales}
+\def \authorname {Jennie Hall}
+\def \illustrator {Victor R. Lambdin}
+\def \keywords {folklore}
+\def \licenseurl {
+    https://www.gutenberg.org/wiki/Gutenberg:Permission_How-To}
+\def \producers {
+    Bryan Ness, Stephen Blundell and the Online Distributed Proofreading
+    Team at \url{http://www.pgdp.net} (This file was produced from images
+    generously made available by The Internet Archive/American
+    Libraries.)}
+\def \ebooknumber {24811}
+\def \releasedate {March 12, 2008}
+
+%% title page, info
+\def \thetitlepage {
+    \includegraphics[width=8.1cm]{viking-tales/003}
+
+    \vfill
+
+    Copyright, 1902,\\
+    By \scshape{Jennie Hall}
+
+    \includegraphics[width=2.7cm]{viking-tales/004}
+
+    Made in U.S.A.
+    \newpage
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=4cm]{viking-tales/001}
+        \\[5cm]
+        \includegraphics[width=\textwidth]{viking-tales/002}
+        \caption{A map showing the journeys of the Vikings}
+    \end{figure}
+}
+\def \bookinfo {
+    Title: \booktitle \\
+    Author: \authorname \\
+    Illustrator: \illustrator \\
+    Release Date: \releasedate \\
+    eBook number: \ebooknumber \\
+    Produced by \producers
+}
+\def \preface {
+    \input{intro}
+}
+
+%% style file containing template
+\usepackage{../../template}
+
+%% additional configurations
+% remove title of lof
+\renewcommand*\listfigurename{}
+% remove section numbering
+\setcounter{secnumdepth}{0}
+% remove figure numbering
+\renewcommand{\thefigure}{}
+% no caption label; italic and large font
+\captionsetup{labelformat=empty,font={it,large}}
+% rename "chapter"
+\renewcommand{\chaptername}{Part}
+% start section in new page
+\newcommand{\sectionbreak}{\cleardoublepage}
+%%% sectsty options
+\chapterfont{\Huge\scshape\centering}
+\sectionfont{\LARGE\centering}
+\subsectionfont{\scshape\centering}
+%%% tocloft options
+% lof chapter number width
+\setlength{\cftfignumwidth}{0em}
+% display "Part X." in toc
+\renewcommand{\cftchappresnum}{Part }
+\renewcommand{\cftchapaftersnum}{.}
+% small caps
+\renewcommand\cftchapfont{\scshape}
+% toc chapter number width
+\setlength{\cftchapnumwidth}{5em}
+
+%% lettrine fonts
+\input Carrickc.fd
+\newcommand*\initfamily{\usefont{U}{Carrickc}{xl}{n}}
+% set lettrine to use initial font and specified color
+\renewcommand\LettrineFontHook{\initfamily}
+
+%% new chapter figure
+\def \chapfig {
+    \newpage
+    \begin{figure}
+        \noindent\rule{\textwidth}{.4pt}
+        \vskip8pt
+        \centering
+        \includegraphics[width=4cm]{viking-tales/001}
+        \noindent\rule{\textwidth}{.4pt}
+    \end{figure}
+    \cleardoublepage
+}
+
+\def \thetableofcontents {
+    \begin{figure}
+        \centering
+        \includegraphics[width=9.3cm]{viking-tales/005}
+    \end{figure}
+    % remove toc name
+    \renewcommand\contentsname{}
+    \tableofcontents
+}
+
+%%%
+\begin{document}
+
+    \thefrontmatter
+
+    \chapter[In Norway]{
+    \includegraphics[width=5.3cm]{viking-tales/008}\\[1cm]
+    In Norway}
+    \chapfig
+    \input{part-1-01}
+    \input{part-1-02}
+    \input{part-1-03}
+    \input{part-1-04}
+    \input{part-1-05}
+    \input{part-1-06}
+    \input{part-1-07}
+    \input{part-1-08}
+    \input{part-1-09}
+    \input{part-1-10}
+    \input{part-1-11}
+
+    \chapter[West-Over-Seas]{
+        \includegraphics[width=5.3cm]{viking-tales/034}\\[1cm]
+        West-Over-Seas}
+    \chapfig
+    \input{part-2-01}
+    \input{part-2-02}
+    \input{part-2-03}
+    \input{part-2-04}
+
+    \backmatter
+    \appendix
+    % add vertical space in toc
+    \addtocontents{toc}{\vspace{\cftbeforechapskip}}
+    \input{appendix}
+    \fulllicense
+
+\end{document}
