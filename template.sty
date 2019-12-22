@@ -44,6 +44,7 @@
 }
 % don't use monospace font for urls
 \urlstyle{same}
+\usepackage{multicol}
 
 %% header and footer
 \usepackage{fancyhdr}
@@ -111,22 +112,7 @@
 
 %% back matter
 % 'The End' and Project Gutenberg license
-\newcommand{\thebackmatter}{
-    \backmatter
-    \appendix
-
-    {
-        % vertical centering
-        \hspace{0pt} % ^
-        \vfill % ^
-        % horizontal centering
-        \centering
-        \Huge\scshape\bfseries The End
-        % vertical centering
-        \vfill % ^
-        \hspace{0pt} % ^
-    }
-
+\newcommand{\fulllicense}{
     \chapter{Project Gutenberg License}
 
     Creating the works from print editions not protected by U.S.
