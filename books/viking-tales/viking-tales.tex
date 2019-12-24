@@ -67,19 +67,19 @@
 % start section in new page
 \newcommand{\sectionbreak}{\cleardoublepage}
 %%% sectsty options
-\chapterfont{\Huge\scshape\centering}
+\chapterfont{\Huge\centering}
 \sectionfont{\LARGE\centering}
 \subsectionfont{\scshape\centering}
 %%% tocloft options
 % lof chapter number width
 \setlength{\cftfignumwidth}{0em}
 % display "Part X." in toc
-\renewcommand{\cftchappresnum}{Part }
+\renewcommand{\cftchappresnum}{\scshape Part }
 \renewcommand{\cftchapaftersnum}{.}
-% small caps
-\renewcommand\cftchapfont{\scshape}
 % toc chapter number width
 \setlength{\cftchapnumwidth}{5em}
+% lof font style
+\renewcommand{\cftfigfont}{\itshape}
 
 %% lettrine fonts
 \input Carrickc.fd
@@ -115,7 +115,7 @@
 
     \thefrontmatter
 
-    \chapter[In Norway]{
+    \chapter[\scshape In Norway]{
     \includegraphics[width=5.3cm]{viking-tales/008}\\[1cm]
     In Norway}
     \chapfig
@@ -131,7 +131,7 @@
     \input{part-1-10}
     \input{part-1-11}
 
-    \chapter[West-Over-Seas]{
+    \chapter[\scshape West-Over-Seas]{
         \includegraphics[width=5.3cm]{viking-tales/034}\\[1cm]
         West-Over-Seas}
     \chapfig

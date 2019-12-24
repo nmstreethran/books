@@ -26,8 +26,15 @@
 \renewcommand\cftchappagefont{\mdseries}
 % modify paragraph skip length
 \setlength{\parskip}{\baselineskip}
+% section font
 \usepackage{sectsty}
 \usepackage{titlesec}
+% multiple columns
+\usepackage{multicol}
+% modify lists
+\usepackage{enumitem}
+% don't use monospace font for urls
+\urlstyle{same}
 
 %% metadata and hyperlink set-up
 \title{\textbf\booktitle}
@@ -42,9 +49,6 @@
     pdflicenseurl=\licenseurl,
     pdfproducer={xelatex}
 }
-% don't use monospace font for urls
-\urlstyle{same}
-\usepackage{multicol}
 
 %% header and footer
 \usepackage{fancyhdr}
