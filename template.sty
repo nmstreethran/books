@@ -15,6 +15,8 @@
 \setlength{\DefaultFindent}{3pt}
 \setlength{\DefaultNindent}{0pt}
 \setcounter{DefaultLines}{3}
+% allow the top of drop caps to align with other letters
+\renewcommand*{\DefaultLoversize}{.1}
 % modify quote environment
 \usepackage{etoolbox}
 \AtBeginEnvironment{quote}{\itshape\Large}
@@ -33,8 +35,6 @@
 \usepackage{multicol}
 % modify lists
 \usepackage{enumitem}
-% don't use monospace font for urls
-\urlstyle{same}
 
 %% metadata and hyperlink set-up
 \title{\textbf\booktitle}
@@ -49,6 +49,8 @@
     pdflicenseurl=\licenseurl,
     pdfproducer={xelatex}
 }
+% don't use monospace font for urls
+\urlstyle{same}
 
 %% header and footer
 \usepackage{fancyhdr}

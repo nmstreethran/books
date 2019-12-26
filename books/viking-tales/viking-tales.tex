@@ -54,8 +54,8 @@
 \usepackage{../../template}
 
 %% additional configurations
-% remove title of lof
-\renewcommand*\listfigurename{}
+% remove title of lof and adjust spacing
+\renewcommand*\listfigurename{\vspace{-70pt}}
 % remove section numbering
 \setcounter{secnumdepth}{0}
 % remove figure numbering
@@ -101,12 +101,9 @@
 }
 
 \def \thetableofcontents {
-    \begin{figure}
-        \centering
-        \includegraphics[width=9.3cm]{viking-tales/005}
-    \end{figure}
-    % remove toc name
-    \renewcommand\contentsname{}
+    \chapter*{\includegraphics[width=9.3cm]{viking-tales/005}}
+    % remove toc name and adjust spacing
+    \renewcommand\contentsname{\vspace{-70pt}}
     \tableofcontents
 }
 
