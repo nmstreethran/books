@@ -54,6 +54,10 @@
 \usepackage{../../template}
 
 %% additional configurations
+% remove chapter numbering
+\renewcommand{\thechapter}{}
+% remove "chapter"
+\renewcommand{\chaptername}{}
 % remove title of lof and adjust spacing
 \renewcommand*\listfigurename{\vspace{-70pt}}
 % remove section numbering
@@ -62,8 +66,6 @@
 \renewcommand{\thefigure}{}
 % no caption label; italic and large font
 \captionsetup{labelformat=empty,font={it,large}}
-% rename "chapter"
-\renewcommand{\chaptername}{Part}
 % start section in new page
 \newcommand{\sectionbreak}{\cleardoublepage}
 %%% sectsty options
@@ -71,15 +73,14 @@
 \sectionfont{\LARGE\centering}
 \subsectionfont{\scshape\centering}
 %%% tocloft options
+% toc chapter number width
+\setlength{\cftchapnumwidth}{0em}
 % lof chapter number width
 \setlength{\cftfignumwidth}{0em}
-% display "Part X." in toc
-\renewcommand{\cftchappresnum}{\scshape Part }
-\renewcommand{\cftchapaftersnum}{.}
-% toc chapter number width
-\setlength{\cftchapnumwidth}{5em}
 % lof font style
 \renewcommand{\cftfigfont}{\itshape}
+% part display in toc
+\renewcommand{\cftpartfont}{\Large\bfseries}
 
 %% lettrine fonts
 \input Carrickc.fd
@@ -87,17 +88,18 @@
 % set lettrine to use initial font and specified color
 \renewcommand\LettrineFontHook{\initfamily}
 
-%% new chapter figure
-\def \chapfig {
+%% new part figure
+\def \partfig {
     \newpage
     \begin{figure}
+        \vskip10cm
         \noindent\rule{\textwidth}{.4pt}
         \vskip8pt
         \centering
         \includegraphics[width=4cm]{viking-tales/001}
         \noindent\rule{\textwidth}{.4pt}
     \end{figure}
-    \cleardoublepage
+
 }
 
 \def \thetableofcontents {
@@ -106,16 +108,15 @@
     \renewcommand\contentsname{\vspace{-70pt}}
     \tableofcontents
 }
-
 %%%
 \begin{document}
 
     \thefrontmatter
 
-    \chapter[\scshape In Norway]{
+    \part[\scshape In Norway]{
     \includegraphics[width=5.3cm]{viking-tales/008}\\[1cm]
-    In Norway}
-    \chapfig
+    In Norway
+    \partfig}
     \input{part-1-01}
     \input{part-1-02}
     \input{part-1-03}
@@ -128,10 +129,10 @@
     \input{part-1-10}
     \input{part-1-11}
 
-    \chapter[\scshape West-Over-Seas]{
+    \part[\scshape West-Over-Seas]{
         \includegraphics[width=5.3cm]{viking-tales/034}\\[1cm]
-        West-Over-Seas}
-    \chapfig
+        West-Over-Seas
+        \partfig}
     \input{part-2-01}
     \input{part-2-02}
     \input{part-2-03}

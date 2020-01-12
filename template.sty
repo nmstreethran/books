@@ -15,13 +15,11 @@
 \setlength{\DefaultFindent}{3pt}
 \setlength{\DefaultNindent}{0pt}
 \setcounter{DefaultLines}{3}
-% allow the top of drop caps to align with other letters
-\renewcommand*{\DefaultLoversize}{.1}
+% % allow the top of drop caps to align with other letters
+% \renewcommand*{\DefaultLoversize}{.1}
 % modify quote environment
 \usepackage{etoolbox}
 \AtBeginEnvironment{quote}{\itshape\Large}
-% use roman numbering for chapters
-\renewcommand{\thechapter}{\Roman{chapter}}
 % modify toc style
 \usepackage{tocloft}
 \renewcommand\cftchapfont{\mdseries}
@@ -67,7 +65,11 @@
 % header and footer for all other pages
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
-\fancyfoot[C]{\large\thepage}
+\fancyhead[LE,RO]{\large\thepage}
+\fancyhead[CE]{\large\scshape\MakeLowercase{\booktitle}}
+\renewcommand{\chaptermark}[1]{%
+    \markboth{#1}{}}
+\fancyhead[CO]{\MakeLowercase{\large\scshape\leftmark}}
 
 %% graphics
 \usepackage{graphicx}
@@ -366,7 +368,7 @@
 
     \noindent\textbf{1.F.4.}
     Except for the limited right of replacement or refund set forth in
-    paragraph 1.F.3, this work is provided to you 'AS-IS', WITH NO OTHER
+    paragraph 1.F.3, this work is provided to you `AS-IS', WITH NO OTHER
     WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
     TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PURPOSE.
 

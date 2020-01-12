@@ -38,12 +38,14 @@
 %% style file containing template
 \usepackage{../../template}
 
+% use roman numbering for chapters
+\renewcommand{\thechapter}{\Roman{chapter}}
 %% toc chapter number width (tocloft)
 \setlength{\cftchapnumwidth}{5em}
 
 %% lettrine fonts
-\input GoudyIn.fd % initial font
-\newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
+\input Elzevier.fd
+\newcommand*\initfamily{\usefont{U}{Elzevier}{xl}{n}}
 % set lettrine to use initial font and specified color
 \renewcommand\LettrineFontHook{\initfamily\color{VioletRed4}}
 
