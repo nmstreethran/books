@@ -1,10 +1,10 @@
 %% set-up
-\documentclass[a4paper,12pt,twoside]{book}
+\documentclass[a4paper,12pt,twoside,openany]{book}
 
 %% define metadata
 \def \booktitle {Robin Hood}
 \def \authorname {J. Walker McSpadden}
-\def \keywords {fantasy}
+\def \keywords {fantasy, folklore}
 \def \licenseurl {
     https://www.gutenberg.org/wiki/Gutenberg:Permission_How-To}
 \def \producers {Joseph S. Miller and David Widger}
@@ -40,14 +40,18 @@
 
 % use roman numbering for chapters
 \renewcommand{\thechapter}{\Roman{chapter}}
-%% toc chapter number width (tocloft)
+%% tocloft options
+% toc chapter number width
 \setlength{\cftchapnumwidth}{5em}
+%% sectsty options
+\chapterfont{\mdseries\Large\centering\itshape}
+\chaptertitlefont{\mdseries\Huge\centering\scshape\lowercase}
 
 %% lettrine fonts
-\input Elzevier.fd
-\newcommand*\initfamily{\usefont{U}{Elzevier}{xl}{n}}
+\input GoudyIn.fd
+\newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
 % set lettrine to use initial font and specified color
-\renewcommand\LettrineFontHook{\initfamily\color{VioletRed4}}
+\renewcommand\LettrineFontHook{\initfamily\color{Firebrick4}}
 
 %%%
 \begin{document}
