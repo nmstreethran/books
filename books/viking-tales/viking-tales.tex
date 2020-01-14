@@ -1,5 +1,5 @@
 %% set-up
-\documentclass[a4paper,12pt,twoside]{book}
+\documentclass[a4paper,12pt,twoside,openany]{book}
 
 %% define metadata
 \def \booktitle {Viking Tales}
@@ -60,27 +60,22 @@
 \renewcommand{\chaptername}{}
 % remove title of lof and adjust spacing
 \renewcommand*\listfigurename{\vspace{-70pt}}
-% remove section numbering
-\setcounter{secnumdepth}{0}
 % remove figure numbering
 \renewcommand{\thefigure}{}
 % no caption label; italic and large font
 \captionsetup{labelformat=empty,font={it,large}}
-% start section in new page
-\newcommand{\sectionbreak}{\cleardoublepage}
 %%% sectsty options
-\chapterfont{\Huge\centering}
-\sectionfont{\LARGE\centering}
-\subsectionfont{\scshape\centering}
+\chapterfont{\mdseries\Huge\centering\scshape\lowercase}
+\sectionfont{\mdseries\scshape\LARGE\centering\lowercase}
+\partfont{\mdseries\Huge\itshape}
+\parttitlefont{\mdseries\Huge\scshape\lowercase}
 %%% tocloft options
-% toc chapter number width
-\setlength{\cftchapnumwidth}{0em}
 % lof chapter number width
 \setlength{\cftfignumwidth}{0em}
 % lof font style
 \renewcommand{\cftfigfont}{\itshape}
 % part display in toc
-\renewcommand{\cftpartfont}{\Large\bfseries}
+\renewcommand{\cftpartfont}{\Large\scshape\hfill}
 
 %% lettrine fonts
 \input Carrickc.fd
@@ -99,7 +94,6 @@
         \includegraphics[width=4cm]{viking-tales/001}
         \noindent\rule{\textwidth}{.4pt}
     \end{figure}
-
 }
 
 \def \thetableofcontents {
@@ -113,7 +107,8 @@
 
     \thefrontmatter
 
-    \part[\scshape In Norway]{
+    \cleardoublepage
+    \part[In Norway]{
     \includegraphics[width=5.3cm]{viking-tales/008}\\[1cm]
     In Norway
     \partfig}
@@ -129,7 +124,8 @@
     \input{part-1-10}
     \input{part-1-11}
 
-    \part[\scshape West-Over-Seas]{
+    \cleardoublepage
+    \part[West-Over-Seas]{
         \includegraphics[width=5.3cm]{viking-tales/034}\\[1cm]
         West-Over-Seas
         \partfig}
