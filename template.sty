@@ -2,7 +2,7 @@
 % avoid overfulls in right margin
 \emergencystretch 3em
 \usepackage[a4paper]{geometry}
-\geometry{lmargin=4cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+\geometry{lmargin=3cm,rmargin=1.5cm,tmargin=2.5cm,bmargin=2.5cm}
 
 %% fonts and styles
 % main font
@@ -15,6 +15,8 @@
 \setlength{\DefaultFindent}{3pt}
 \setlength{\DefaultNindent}{0pt}
 \setcounter{DefaultLines}{3}
+\renewcommand{\LettrineTextFont}{\scshape\lowercase}
+\LettrineRealHeighttrue
 % % allow the top of drop caps to align with other letters
 % \renewcommand*{\DefaultLoversize}{.1}
 % modify quote environment
@@ -38,14 +40,14 @@
 \title{\textbf\booktitle}
 \author{\authorname}
 \date{}
-\usepackage[hidelinks]{hyperref}
-\usepackage{hyperxmp}
+\usepackage[hidelinks,unicode]{hyperref}
+% \usepackage{hyperxmp}
 \hypersetup{
     pdfauthor={\authorname},
     pdftitle={\booktitle},
     pdfkeywords={\keywords},
-    pdflicenseurl=\licenseurl,
-    pdfproducer={xelatex}
+    % pdflicenseurl={\licenseurl},
+    % pdfproducer={xelatex}
 }
 % don't use monospace font for urls
 \urlstyle{same}
@@ -121,6 +123,7 @@
 %% back matter
 % 'The End' and Project Gutenberg license
 \newcommand{\fulllicense}{
+    \cleardoublepage
     \chapter{Project Gutenberg License}
 
     Creating the works from print editions not protected by U.S.
