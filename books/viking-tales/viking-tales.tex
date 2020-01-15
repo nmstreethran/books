@@ -6,8 +6,6 @@
 \def \authorname {Jennie Hall}
 \def \illustrator {Victor R. Lambdin}
 \def \keywords {folklore}
-\def \licenseurl {
-    https://www.gutenberg.org/wiki/Gutenberg:Permission_How-To}
 \def \producers {
     Bryan Ness, Stephen Blundell and the Online Distributed Proofreading
     Team at \url{http://www.pgdp.net} (This file was produced from images
@@ -38,8 +36,7 @@
         \caption{A map showing the journeys of the Vikings}
     \end{figure}
 }
-\def \bookinfo {
-    Title: \booktitle \\
+\def \bookinfo {Title: \booktitle \\
     Author: \authorname \\
     Illustrator: \illustrator \\
     Release Date: \releasedate \\
@@ -140,6 +137,7 @@
     \appendix
     % add vertical space in toc
     \addtocontents{toc}{\vspace{\cftbeforechapskip}}
+    \pdfbookmark[-1]{Backmatter}{Backmatter}
     \input{appendix}
     \fulllicense
 
