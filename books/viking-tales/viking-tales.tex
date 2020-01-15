@@ -46,9 +46,7 @@
     eBook number: \ebooknumber \\
     Produced by \producers
 }
-\def \preface {
-    \input{intro}
-}
+\def \preface {}
 
 %% style file containing template
 \usepackage{../../template}
@@ -57,7 +55,7 @@
 % remove chapter numbering
 \renewcommand{\thechapter}{}
 % remove "chapter"
-\renewcommand{\chaptername}{}
+\renewcommand{\chaptername}{\vspace{-30pt}}
 % remove title of lof and adjust spacing
 \renewcommand*\listfigurename{\vspace{-70pt}}
 % remove figure numbering
@@ -70,6 +68,8 @@
 \partfont{\mdseries\Huge\itshape}
 \parttitlefont{\mdseries\Huge\scshape\lowercase}
 %%% tocloft options
+% toc chapter number width
+\setlength{\cftchapnumwidth}{0em}
 % lof chapter number width
 \setlength{\cftfignumwidth}{0em}
 % lof font style
@@ -87,7 +87,6 @@
 \def \partfig {
     \newpage
     \begin{figure}
-        \vskip10cm
         \noindent\rule{\textwidth}{.4pt}
         \vskip8pt
         \centering
@@ -101,12 +100,15 @@
     % remove toc name and adjust spacing
     \renewcommand\contentsname{\vspace{-70pt}}
     \tableofcontents
+    \chapter[A List of the Illustrations]{
+        \includegraphics[width=9.3cm]{viking-tales/006}}
+    \listoffigures
 }
 %%%
 \begin{document}
 
     \thefrontmatter
-
+    \input{intro}
     \cleardoublepage
     \part[In Norway]{
     \includegraphics[width=5.3cm]{viking-tales/008}\\[1cm]

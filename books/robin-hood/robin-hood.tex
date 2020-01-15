@@ -43,8 +43,11 @@
 %% tocloft options
 % toc chapter number width
 \setlength{\cftchapnumwidth}{5em}
+% toc title font
+\renewcommand\contentsname{
+    \hfill\MakeLowercase{\mdseries\Huge\scshape Contents}\hfill}
 %% sectsty options
-\chapterfont{\mdseries\Large\centering\itshape}
+\chapterfont{\vspace{-60pt}\mdseries\Large\centering\itshape}
 \chaptertitlefont{\mdseries\Huge\centering\scshape\lowercase}
 
 %% lettrine fonts
