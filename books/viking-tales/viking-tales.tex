@@ -50,6 +50,10 @@
 \usepackage{../../template}
 
 %% additional configurations
+% make parts lowercase in toc
+\makeatletter
+\patchcmd{\l@part}{#1}{\MakeLowercase{#1}}{}{}
+\makeatother
 % remove chapter numbering
 \renewcommand{\thechapter}{}
 % remove "chapter"
@@ -73,7 +77,7 @@
 % lof font style
 \renewcommand{\cftfigfont}{\itshape}
 % part display in toc
-\renewcommand{\cftpartfont}{\Large\scshape\hfill}
+\renewcommand{\cftpartfont}{\LARGE\scshape\hfill}
 
 %% lettrine fonts
 \input Carrickc.fd

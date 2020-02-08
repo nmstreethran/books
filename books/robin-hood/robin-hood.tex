@@ -36,9 +36,15 @@
 %% style file containing template
 \usepackage{../../template}
 
+% make chapters lowercase in toc
+\makeatletter
+\patchcmd{\l@chapter}{#1}{\MakeLowercase{#1}}{}{}
+\makeatother
 % use roman numbering for chapters
 \renewcommand{\thechapter}{\Roman{chapter}}
 %% tocloft options
+% chapter font in toc
+\renewcommand{\cftchapfont}{\mdseries\scshape}
 % toc chapter number width
 \setlength{\cftchapnumwidth}{5em}
 % toc title font
