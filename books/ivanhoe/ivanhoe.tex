@@ -1,0 +1,131 @@
+%% set-up
+\documentclass[12pt,twoside,openany]{book}
+
+%% define metadata
+\def \booktitle {Ivanhoe}
+\def \authorname {Sir Walter Scott}
+\def \keywords {fantasy, folklore}
+\def \producers {John P. Roberts, Jr.}
+\def \ebooknumber {82}
+\def \postingdate {June 25, 2008}
+\def \releasedate {September, 1993}
+\def \lastupdated {February 27, 2018}
+
+%% title page, info and toc
+\def \thetitlepage {
+    % vertical centering
+    \hspace{0pt} % ^
+    \vfill % ^
+    \Huge\textbf\booktitle
+    \\[2cm]
+    \huge\authorname
+    % vertical centering
+    \vfill % ^
+    \hspace{0pt} % ^
+}
+\def \bookinfo {Title: \booktitle \\
+    Author: \authorname \\
+    Release Date: \releasedate \\
+    eBook number: \ebooknumber \\
+    Posting Date: \postingdate \\
+    Last Updated: \lastupdated \\
+    Produced by \producers \\
+    Compiled on \today
+}
+\def \thetableofcontents {\tableofcontents}
+\def \preface {
+    \input{intro}
+}
+
+%% style file containing template
+\usepackage{../../template}
+
+% make chapters and parts lowercase in toc
+\makeatletter
+\patchcmd{\l@part}{#1}{\MakeLowercase{#1}}{}{}
+\patchcmd{\l@chapter}{#1}{\MakeLowercase{#1}}{}{}
+\makeatother
+% use roman numbering for chapters
+\renewcommand{\thechapter}{\Roman{chapter}}
+% remove part number and name
+\renewcommand{\thepart}{}
+\renewcommand{\partname}{}
+%% tocloft options
+% add chapter name before number
+\renewcommand{\cftchappresnum}{Chapter~}
+% format chapter and part fonts
+\renewcommand{\cftpartfont}{\mdseries\scshape\LARGE\hfill}
+\renewcommand{\cftchapfont}{\mdseries\scshape}
+% remove toc part number width
+\setlength{\cftpartnumwidth}{0em}
+% toc title font
+\renewcommand\contentsname{
+    \hfill\MakeLowercase{\mdseries\Huge\scshape Contents}\hfill}
+%% sectsty options
+\chapterfont{\vspace{-60pt}\mdseries\Large\centering\itshape}
+\chaptertitlefont{\mdseries\Huge\centering\scshape\lowercase}
+\parttitlefont{\mdseries\Huge\centering\scshape\lowercase}
+
+%% lettrine fonts
+\input GoudyIn.fd
+\newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
+% set lettrine to use initial font and specified color
+\renewcommand\LettrineFontHook{\initfamily\color{Firebrick4}}
+
+%%%
+\begin{document}
+
+    \thefrontmatter
+
+    \part{Ivanhoe}
+    \input{chapter-01}
+    \input{chapter-02}
+    \input{chapter-03}
+    \input{chapter-04}
+    \input{chapter-05}
+    \input{chapter-06}
+    \input{chapter-07}
+    \input{chapter-08}
+    \input{chapter-09}
+    \input{chapter-10}
+    \input{chapter-11}
+    \input{chapter-12}
+    \input{chapter-13}
+    \input{chapter-14}
+    \input{chapter-15}
+    \input{chapter-16}
+    \input{chapter-17}
+    \input{chapter-18}
+    \input{chapter-19}
+    \input{chapter-20}
+    \input{chapter-21}
+    \input{chapter-22}
+    \input{chapter-23}
+    \input{chapter-24}
+    \input{chapter-25}
+    \input{chapter-26}
+    \input{chapter-27}
+    \input{chapter-28}
+    \input{chapter-29}
+    \input{chapter-30}
+    \input{chapter-31}
+    \input{chapter-32}
+    \input{chapter-33}
+    \input{chapter-34}
+    \input{chapter-35}
+    \input{chapter-36}
+    \input{chapter-37}
+    \input{chapter-38}
+    \input{chapter-39}
+    \input{chapter-40}
+    \input{chapter-41}
+    \input{chapter-42}
+    \input{chapter-43}
+    \input{chapter-44}
+
+    \backmatter
+    \appendix
+    \input{appendix}
+    \fulllicense
+
+\end{document}

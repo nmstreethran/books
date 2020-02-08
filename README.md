@@ -8,6 +8,7 @@ A compilation of interesting public domain books from [Project Gutenberg](https:
 
 These PDFs are compiled using XeLaTeX and [template.sty](template.sty).
 
+- [Ivanhoe](books/ivanhoe/ivanhoe.pdf)
 - [Robin Hood](books/robin-hood/robin-hood.pdf)
 - [Viking Tales](books/viking-tales/viking-tales.pdf)
 
