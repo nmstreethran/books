@@ -4,6 +4,7 @@
 %% define metadata
 \def \booktitle {Ivanhoe}
 \def \authorname {Sir Walter Scott}
+\def \illustrator {Maurice Greiffenhagen}
 \def \keywords {fantasy, folklore}
 \def \producers {John P. Roberts, Jr.}
 \def \ebooknumber {82}
@@ -19,12 +20,23 @@
     \Huge\textbf\booktitle
     \\[2cm]
     \huge\authorname
+    \\[2cm]
+    \huge Illustrated by \illustrator
     % vertical centering
     \vfill % ^
     \hspace{0pt} % ^
+    \newpage
+
+    \begin{figure}
+        \centering
+        \includegraphics[height=.9\textheight]{ivanhoe/0010m}
+        \caption{`Your reverences must hold on this path till you
+        come to a sunken cross.'}
+    \end{figure}
 }
 \def \bookinfo {Title: \booktitle \\
     Author: \authorname \\
+    Illustrator: \illustrator \\
     Release Date: \releasedate \\
     eBook number: \ebooknumber \\
     Posting Date: \postingdate \\
@@ -32,7 +44,11 @@
     Produced by \producers \\
     Compiled on \today
 }
-\def \thetableofcontents {\tableofcontents}
+\def \thetableofcontents {
+    \renewcommand\contentsname{\vspace{-70pt}}
+    \chapter*{Contents}
+    \tableofcontents
+}
 \def \preface {
     \input{intro}
 }
@@ -45,19 +61,18 @@
 \patchcmd{\l@part}{#1}{\MakeLowercase{#1}}{}{}
 \patchcmd{\l@chapter}{#1}{\MakeLowercase{#1}}{}{}
 \makeatother
-% use roman numbering for chapters
-\renewcommand{\thechapter}{\Roman{chapter}}
-% remove part number and name
+% remove chapter and part numbers and names
+\renewcommand{\thechapter}{}
+\renewcommand{\chaptername}{}
 \renewcommand{\thepart}{}
 \renewcommand{\partname}{}
 %% tocloft options
-% add chapter name before number
-\renewcommand{\cftchappresnum}{Chapter~}
 % format chapter and part fonts
 \renewcommand{\cftpartfont}{\mdseries\scshape\LARGE\hfill}
 \renewcommand{\cftchapfont}{\mdseries\scshape}
 % remove toc part number width
 \setlength{\cftpartnumwidth}{0em}
+\setlength{\cftchapnumwidth}{0em}
 % toc title font
 \renewcommand\contentsname{
     \hfill\MakeLowercase{\mdseries\Huge\scshape Contents}\hfill}
@@ -65,12 +80,29 @@
 \chapterfont{\vspace{-60pt}\mdseries\Large\centering\itshape}
 \chaptertitlefont{\mdseries\Huge\centering\scshape\lowercase}
 \parttitlefont{\mdseries\Huge\centering\scshape\lowercase}
+%% captions
+% remove figure numbering
+\renewcommand{\thefigure}{}
+% no caption label; large font
+\captionsetup{labelformat=empty,font={large}}
+%% verses
+\setlength{\leftmargini}{5em}
+\renewcommand{\flagverse}[1]{%
+\hskip-\vleftskip\llap{
+    \MakeLowercase{\normalfont\textsc{#1}}}\hskip\vleftskip
+\ignorespaces
+}
+\newcommand{\attrib}[1]{%
+    \nopagebreak{\raggedleft #1\par}}
+\newcommand{\versetitle}[1]{
+    \MakeLowercase{\normalfont\scshape #1}
+}
 
 %% lettrine fonts
 \input GoudyIn.fd
 \newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
 % set lettrine to use initial font and specified color
-\renewcommand\LettrineFontHook{\initfamily\color{Firebrick4}}
+\renewcommand\LettrineFontHook{\initfamily\color{DarkOrchid4}}
 
 %%%
 \begin{document}
@@ -125,6 +157,9 @@
 
     \backmatter
     \appendix
+    % add vertical space in toc
+    \addtocontents{toc}{\vspace{\cftbeforechapskip}}
+    \pdfbookmark[-1]{Backmatter}{Backmatter}
     \input{appendix}
     \fulllicense
 

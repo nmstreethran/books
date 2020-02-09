@@ -19,9 +19,12 @@
 \LettrineRealHeighttrue
 % % allow the top of drop caps to align with other letters
 % \renewcommand*{\DefaultLoversize}{.1}
+% verses / quotes
+\usepackage{verse}
 % modify quote environment
 \usepackage{etoolbox}
 \AtBeginEnvironment{quote}{\itshape\Large}
+\AtBeginEnvironment{verse}{\itshape\Large}
 % modify toc style
 \usepackage{tocloft}
 \renewcommand\cftchapfont{\mdseries}
@@ -77,6 +80,9 @@
 \renewcommand{\chaptermark}[1]{%
     \markboth{#1}{}}
 \fancyhead[CO]{\MakeLowercase{\large\scshape\leftmark}}
+% reset footnote numbering
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
 
 %% graphics
 \usepackage{graphicx}
@@ -126,7 +132,7 @@
 }
 
 %% back matter
-% 'The End' and Project Gutenberg license
+% Project Gutenberg license
 \newcommand{\fulllicense}{
     \cleardoublepage
     \chapter{Project Gutenberg License}
